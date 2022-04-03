@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style/style.css">
+  <script src="https://kit.fontawesome.com/cf7ff6fcbd.js" crossorigin="anonymous"></script>
+  <title>Cart</title>
+</head>
+<body>
+  <div class="header-page">
+    <nav class="header-nav">
+      <a class="brand-logo" href="product.html"><img src="https://themes.the4.co/kalles-html/assets/images/svg/kalles.svg" alt=""></a>
+      <div class="form-search">
+        <form id="form-search" action="">
+          <input type="text" placeholder="Find with product name" id="search-key">
+          <button class="search" onclick=search()><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <button></button>
+      </div>
+      <a class="icon-cart" href="page-cart.html">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="number-item">0</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="main-page">
+    <section class="section-product">
+      <div class="container">
+        <table id="table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th></th>
+              <th>Product name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="insert-content">
+          </tbody>
+        </table>
+      <div>
+        
+      </div>  
+      </div>
+    </section>
+  </div>
+  <div class="footer-page"></div>
+
+  <script src="cart.js"></script>
+</body>
+</html>
