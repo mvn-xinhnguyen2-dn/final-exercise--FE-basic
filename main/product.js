@@ -44,7 +44,7 @@ function searchProduct() {
     $productList.innerHTML = productList;
     if ($keySearch == "") {
       $keyWord.innerText = "Tất cả sản phẩm";
-    } else if (typeof $keySearch == String) {
+    } else if (typeof($keySearch) == string) {
       $keyWord.innerHTML = $keySearch;
     } else {
       $keyWord.innerHTML = `Từ ${$keySearch - 5000000} đ đến ${$keySearch} đ`;
