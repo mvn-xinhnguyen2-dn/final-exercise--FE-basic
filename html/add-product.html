@@ -1,83 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../style/style.css">
-  <script src="https://kit.fontawesome.com/cf7ff6fcbd.js" crossorigin="anonymous"></script>
-  <title>Add new product</title>
-</head>
-<body>
-  <div class="header-page">
-    <nav class="header-nav">
-      <a class="brand-logo" href="product.html"><img src="https://themes.the4.co/kalles-html/assets/images/svg/kalles.svg" alt=""></a>
-      <div class="form-search">
-        <form id="form-search" action="">
-          <input type="text" placeholder="Find with product name" id="search-key">
-          <button class="search" onclick=search()><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-        <button></button>
-      </div>
-      <a class="icon-cart" href="page-cart.html">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span id="number-item">0</span>
-      </a>
-    </nav>
-  </div>
-
-  <div class="main-page">
-    <section class="add-product">
-      <div class="container"> 
-        <h2>THÊM SẢN PHẨM</h2>      
-        <div class="form add-item">
-          <form id="form-add-item" name="form-add-item" action="">
-            <table class="table-form">
-              <tbody>
-                <tr>
-                  <td><label for="product-name">Product name:</label></td>
-                  <td><input type="text" name="product-name" id="product-name" value="" required></td>
-                </tr>
-                <tr>
-                  <td><label for="product-category">Category:</label></td>
-                  <td>
-                    <select name="product-category" id="product-category" required>
-                      <option selected disabled hidden>Choose category</option>
-                      <option value="Smart phone">Smart phone</option>
-                      <option value="Laptop">Laptop</option>
-                      <option value="Tablet">Tablet</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td><label for="product-image">Image (url):</label></td>
-                  <td><input type="text" name="product-image" id="product-image" required></td>
-                </tr>
-                <tr>
-                  <td><label for="product-quantity">Quantity:</label></td>
-                  <td><input type="number" name="product-quantity" id="product-quantity" required></td>
-                </tr>
-                <tr>
-                  <td><label for="product-price">Price:</label></td>
-                  <td><input type="number" name="product-price" id="product-price" required></td>
-                </tr>
-                <tr>
-                  <td><label for="product-description">Description:</label></td>
-                  <td><textarea cols="85" rows="10" name="product-description" id="product-description"></textarea></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="button-form">
-              <button class="btn submit" type="submit">Save</button>
-              <button class="btn reset" type="button" onclick=resetForm()>Reset</button>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/style.css" />
+    <script
+      src="https://kit.fontawesome.com/cf7ff6fcbd.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Add new product</title>
+  </head>
+  <body>
+    <div class="header-page">
+      <nav class="header-nav">
+        <a class="brand-logo" href="../index.html"
+          ><img
+            src="https://themes.the4.co/kalles-html/assets/images/svg/kalles.svg"
+            alt=""
+        /></a>
+        <div class="form-search">
+          <form id="form-search" action="">
+            <input
+              type="text"
+              placeholder="Find with product name"
+              id="search-key"
+            />
+            <button class="search" onclick="search()">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
           </form>
+          <button></button>
         </div>
-      </div>
-    </section>
-  </div>
-  <div class="footer-page"></div>
+        <a class="icon-cart" href="page-cart.html">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="number-item">0</span>
+        </a>
+      </nav>
+    </div>
 
-  <script src="../main/add-product.js"></script>
-</body>
+    <div class="main-page">
+      <section class="add-product">
+        <div class="container">
+          <aside class="left-sidebar col-3">
+            <h2>Admin</h2>
+            <ul class="admin-list">
+              <li class="admin-item"><a href="../index.html"> Trang chủ</a></li>
+              <li class="admin-item">
+                <a href="./manage-product.html"> Quản lý sản phẩm</a>
+              </li>
+              <li class="admin-item">
+                <a href="./page-cart.html"> Xem giỏ hàng</a>
+              </li>
+              <li class="admin-item">
+                <a href="./page-cart.html"> Xem giỏ hàng</a>
+              </li>
+            </ul>
+            <ul>
+              <li><a href=""></a></li>
+              <li><a href=""></a></li>
+              <li><a href=""></a></li>
+            </ul>
+          </aside>
+          <div class="show-form col-9">
+            <h2>THÊM SẢN PHẨM</h2>
+            <div class="form add-item">
+              <form id="form-add-item" name="form-add-item" action="">
+                <table class="table-form">
+                  <tbody>
+                    <tr>
+                      <td><label for="product-name">Product name:</label></td>
+                      <td>
+                        <input
+                          type="text"
+                          name="product-name"
+                          id="product-name"
+                          value=""
+                          required
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label for="product-category">Category:</label></td>
+                      <td>
+                        <select
+                          name="product-category"
+                          id="product-category"
+                          required
+                        >
+                          <option selected disabled hidden>
+                            Choose category
+                          </option>
+                          <option value="Smart phone">Smart phone</option>
+                          <option value="Laptop">Laptop</option>
+                          <option value="Tablet">Tablet</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label for="product-image">Image (url):</label></td>
+                      <td>
+                        <input
+                          type="text"
+                          name="product-image"
+                          id="product-image"
+                          required
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label for="product-quantity">Quantity:</label></td>
+                      <td>
+                        <input
+                          type="number"
+                          name="product-quantity"
+                          id="product-quantity"
+                          required
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label for="product-price">Price:</label></td>
+                      <td>
+                        <input
+                          type="number"
+                          name="product-price"
+                          id="product-price"
+                          required
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label for="product-description">Description:</label>
+                      </td>
+                      <td>
+                        <textarea
+                          cols="85"
+                          rows="10"
+                          name="product-description"
+                          id="product-description"
+                        ></textarea>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="button-form">
+                  <button class="btn submit" type="submit">Save</button>
+                  <button class="btn reset" type="button" onclick="resetForm()">
+                    Reset
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="footer-page"></div>
+
+    <script src="../main/add-product.js"></script>
+  </body>
 </html>

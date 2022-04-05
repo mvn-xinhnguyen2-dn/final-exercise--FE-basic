@@ -59,6 +59,7 @@ html {
   position: relative;
   box-shadow: 0 0.1px 12px 0 rgb(0 0 0 / 10%);
   border-radius: 10px;
+  padding-bottom: 30px;
 }
 
 .col-3 {
@@ -116,7 +117,8 @@ html {
 }
 
  /* Page product.html-->section product css  */
-.section-product .container {
+.section-product .container,
+.add-product .container {
   display: flex;
   width: 1500px;
   margin-top: 50px;
@@ -270,7 +272,7 @@ html {
 /* Button CSS  */
 
 .btn-action {
-  padding: 10px;
+  padding: 5px;
   margin: 5px 0;
   border-radius: 5px;
   background-color: #e7ab51;
@@ -302,6 +304,7 @@ html {
 
 .manage-product .container {
   position: relative;
+  display: flex;
 }
 
 table th {
@@ -460,4 +463,51 @@ table th {
   height: 25px;
   padding-left: 10px;
   font-size: 14px;
+}
+
+/* css page cart html  */
+.section-product-cart .container {
+  display: flex;
+  padding-top: 50px;
+
+}
+
+.section-product-cart h3 {
+  text-align: center;
+}
+.product-table-cart {
+  width: 80%;
+  margin: 30px auto;
+  text-align: center;
+  border: 1px solid rgb(135, 133, 130);
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.product-table-cart th {
+  padding: 10px 0;
+}
+.product-table-cart th,
+.product-table-cart td {
+  border: 1px solid rgb(135, 133, 130);
+}
+
+.product-table-cart tr:hover {
+  background-color: #a3a1a11f;
+}
+
+.product-table-cart th:nth-child(3),
+.product-table-cart td:nth-child(3) {
+  border-left: none;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.product-table-cart th:nth-child(2),
+.product-table-cart td:nth-child(2) {
+  border-right: none;
+}
+
+.product-img-small img{
+  width: 150px;
 }
