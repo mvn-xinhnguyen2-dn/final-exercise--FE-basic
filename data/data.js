@@ -121,7 +121,7 @@ var data = [
   },
 ];
 
-// load data vào local
+// load data into local
 
 let product = JSON.parse(localStorage.getItem("product")) || [];
 if (product.length === 0) {
@@ -131,5 +131,3 @@ if (product.length === 0) {
   }
   console.log(product.length);
 }
-
-// console.log(pr)

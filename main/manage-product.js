@@ -1,4 +1,4 @@
-// 1. Print items in product management table
+// ===1. Print items in product management table===
 let productHtml = "";
 let $tbody = document.getElementById("insert-product-table");
 let product = JSON.parse(localStorage.getItem("product")) || [];
@@ -23,7 +23,7 @@ for (let index in product) {
 }
 $tbody.innerHTML = productHtml;
 
-// 2. update item in product management table
+// ===2. update item in product management table===
 //get data in form
 let targetId;
 function update(x) {
@@ -82,7 +82,7 @@ function removeFormUpdate() {
   document.querySelector(".form.update-item.active").classList.remove("active");
 }
 
-// 3. show product detail.
+// ===3. show product detail.===
 
 let $showItemInfo = document.getElementById("product-detail");
 let detailItemHtml = "";
@@ -119,7 +119,7 @@ function removeProductDetail() {
   document.querySelector(".product-detail.active").classList.remove("active");
 }
 
-// 4. remove item in product management table
+// ===4. remove item in product management table===
 function remove($this, id) {
   let $trParent = $this.closest("tr");
   let idItem = $trParent.getAttribute("id");
@@ -138,7 +138,7 @@ let removeItemLocal = function (id) {
   localStorage.setItem("product", JSON.stringify(newData));
 };
 
-// 5. filter product
+// ===5. filter product===
 // search item by price or name
 let $formSearch = document.getElementById("form-search");
 let $keyWord = document.getElementById("key-word");
@@ -180,10 +180,10 @@ $formSearch.addEventListener("submit", function (e) {
   $tbody.innerHTML = productHtml;
   if ($keySearch == "") {
     $keyWord.innerText = "Tất cả sản phẩm";
-  } else if (typeof($keySearch) == string) {
-    $keyWord.innerHTML = $keySearch;
-  } else {
+  } else if ($keySearch - 1 >= 0) {
     $keyWord.innerHTML = `Từ ${$keySearch - 5000000} đ đến ${$keySearch} đ`;
+  } else {
+    $keyWord.innerHTML = $keySearch;
   }
   activeReplaceKey();
 });
@@ -191,5 +191,3 @@ $formSearch.addEventListener("submit", function (e) {
 function activeReplaceKey() {
   document.querySelector(".replace-key").classList.add("active");
 }
-
-console.log(typeof("123"))

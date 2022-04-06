@@ -1,8 +1,7 @@
 const $addItemForm = document.getElementById("form-add-item");
 let product = JSON.parse(localStorage.getItem("product")) || [];
 
-// 1.
-
+// submit form add product
 $addItemForm.addEventListener("submit", function (e) {
   e.preventDefault();
   let data = new FormData($addItemForm);
@@ -22,7 +21,7 @@ $addItemForm.addEventListener("submit", function (e) {
   alert("Successfully!!!");
 });
 
-// add new product in localStorage
+// Add new product in localStorage
 function addItem2Local(newProduct) {
   product.push(newProduct);
   localStorage.setItem("product", JSON.stringify(product));

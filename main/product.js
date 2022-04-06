@@ -1,4 +1,4 @@
-// 1. show list product
+// ===1. show list product===
 
 const itemInCart = JSON.parse(localStorage.getItem("productInCart")) || [];
 let productList = "";
@@ -12,7 +12,7 @@ for (let index in product) {
 }
 $productList.innerHTML = productList;
 
-// 2. search item by price or name
+// ===2. search item by price or name===
 function searchProduct() {
   let $formSearch = document.getElementById("form-search");
   let $keyWord = document.getElementById("key-word");
@@ -44,10 +44,10 @@ function searchProduct() {
     $productList.innerHTML = productList;
     if ($keySearch == "") {
       $keyWord.innerText = "Tất cả sản phẩm";
-    } else if (typeof($keySearch) == string) {
-      $keyWord.innerHTML = $keySearch;
-    } else {
+    } else if ($keySearch - 1 >= 0) {
       $keyWord.innerHTML = `Từ ${$keySearch - 5000000} đ đến ${$keySearch} đ`;
+    } else {
+      $keyWord.innerHTML = $keySearch;
     }
     activeReplaceKey();
   });
@@ -57,7 +57,7 @@ function searchProduct() {
 }
 searchProduct();
 
-// 3. add item to cart
+// ===3. add item to cart===
 function addClick(click_id) {
   let id = parseInt(click_id) - 1;
   addItem2Cart({
@@ -73,7 +73,7 @@ function addItem2Cart(itemA) {
   showNumberCart();
 }
 
-// 4. update number of item in cart icon
+// ===4. update number of item in cart icon==
 function showNumberCart() {
   let num = itemInCart.length;
   localStorage.setItem("numberCart", num);
