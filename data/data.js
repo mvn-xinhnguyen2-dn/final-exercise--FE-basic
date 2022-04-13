@@ -21,7 +21,7 @@ var data = [
     quantity: "5",
   },
   {
-    category: "Laptop",
+    category: "Smart phone",
     description:
       "iPhone 13 Pro Max 128 GB - siêu phẩm được mong chờ nhất ở nửa cuối năm 2021 đến từ Apple. Máy có thiết kế không mấy đột phá khi so với người tiền nhiệm, bên trong đây vẫn là một sản phẩm có màn hình siêu đẹp, tần số quét được nâng cấp lên 120 Hz mượt mà, cảm biến camera có kích thước lớn hơn, cùng hiệu năng mạnh mẽ với sức mạnh đến từ Apple A15 Bionic, sẵn sàng cùng bạn chinh phục mọi thử thách.",
     id: "3",
@@ -131,3 +131,4 @@ if (product.length === 0) {
   }
   console.log(product.length);
 }
+

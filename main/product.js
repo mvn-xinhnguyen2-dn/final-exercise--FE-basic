@@ -1,16 +1,24 @@
 // ===1. show list product===
 
 const itemInCart = JSON.parse(localStorage.getItem("productInCart")) || [];
-let productList = "";
 let $productList = document.getElementById("product-list");
-for (let index in product) {
-  productList += `<li class="product-item">
-  <img src=${product[index].image}>
-  <h3 class="product-name">${product[index].productName}</h3>
-  <p class="product-price">${product[index].price} đ</p>
-  <button type="button" id="${product[index].id}" onClick="addClick(this.id)" class="btn add2cart">Add to cart</button></li>`;
+function showProductHtml(productData) {
+  let productListHtml = "";
+  for (let index in productData) {
+    productListHtml += `<li class="product-item">
+  <img src=${productData[index].image}>
+  <h3 class="product-name">${productData[index].productName}</h3>
+  <p class="product-price">${productData[index].price} đ</p>
+  <button type="button" id="${productData[index].id}" onClick="addClick(this.id)" class="btn add2cart">Add to cart</button></li>`;
+  }
+  if (productListHtml != '') {
+    $productList.innerHTML = productListHtml;
+  } else {
+    $productList.innerHTML = `Không có sản phẩm nào! `;
+  }
 }
-$productList.innerHTML = productList;
+showProductHtml(product)
+
 
 // ===2. search item by price or name===
 function searchProduct() {
@@ -21,31 +29,34 @@ function searchProduct() {
     let $keySearch = document.getElementById("search-key").value;
     let filterProduct = product.filter(function (product) {
       let $productName = product.productName;
-      return (
-        new RegExp($keySearch.toLowerCase()).test(
-          $productName.toLowerCase()
-        ) === true ||
-        (parseInt($keySearch) - 5000000 <= parseInt(product.price) &&
-          parseInt($keySearch) >= parseInt(product.price))
-      );
+      if (parseInt($keySearch) >= 10000000) {
+        return (
+          new RegExp($keySearch.toLowerCase()).test(
+            $productName.toLowerCase()
+          ) === true ||
+          (parseInt($keySearch) - 5000000 <= parseInt(product.price) &&
+            parseInt($keySearch) >= parseInt(product.price))
+        );
+      } else{
+        return (
+          new RegExp($keySearch.toLowerCase()).test(
+            $productName.toLowerCase()
+          ) === true ||
+            parseInt($keySearch) >= parseInt(product.price)
+        );
+      }
     });
     $formSearch.reset();
 
     //show item
-    let productList = "";
-    let $productList = document.getElementById("product-list");
-    for (let index in filterProduct) {
-      productList += `<li class="product-item">
-      <img src=${filterProduct[index].image}>
-      <h3 class="product-name">${filterProduct[index].productName}</h3>
-      <p class="product-price">${filterProduct[index].price} đ</p>
-      <button type="button" id="${filterProduct[index].id}" onClick="addClick(this.id)" class="btn add2cart">Add to cart</button></li>`;
-    }
-    $productList.innerHTML = productList;
+    showProductHtml(filterProduct)
+    // show key search 
     if ($keySearch == "") {
       $keyWord.innerText = "Tất cả sản phẩm";
-    } else if ($keySearch - 1 >= 0) {
+    } else if ($keySearch > 5000000)  {
       $keyWord.innerHTML = `Từ ${$keySearch - 5000000} đ đến ${$keySearch} đ`;
+    } else if ($keySearch - 5000000 < 0)  {
+      $keyWord.innerHTML = `Dưới ${$keySearch} đ`
     } else {
       $keyWord.innerHTML = $keySearch;
     }
@@ -83,3 +94,55 @@ function showNumberCart() {
 }
 
 showNumberCart();
+
+// ===5. sort product. ===
+// Sort latest products
+function sortlatest() {
+  removeSortItem()
+  activeSortItem(".sort-latest")
+  product.sort(function(a, b) {
+    return b.id - a.id
+  })
+  removeSortIcon()
+  document.getElementsByClassName("icon-sort")[0].style.display = 'block'
+  document.getElementById("key-word").innerHTML="Sản phẩm mới nhất"
+  showProductHtml(product)
+}
+// Sort price ascending
+function sortPriceAsc() {
+  removeSortItem()
+  activeSortItem()
+  removeSortIcon()
+  document.getElementsByClassName("arrow-up")[0].style.display = 'block'
+  product.sort(function(a, b) {
+    return a.price - b.price
+  })
+  document.getElementById("key-word").innerHTML="Sắp xếp giá tăng dần"
+  showProductHtml(product)
+}
+
+// Sort price descending
+function sortPriceDesc() {
+  removeSortItem()
+  activeSortItem()
+  removeSortIcon()
+  document.getElementsByClassName("arrow-down")[0].style.display = 'block'
+  product.sort(function(a, b) {
+    return b.price - a.price
+  })
+  document.getElementById("key-word").innerHTML="Sắp xếp giá giảm dần"
+  showProductHtml(product)
+}
+
+function activeSortItem() {
+  document.querySelector(".sort-price").classList.add("active");
+}
+function removeSortItem() {
+  document.querySelector(".sort-list li.active").classList.remove("active");
+}
+
+function removeSortIcon() {
+  document.getElementsByClassName("icon-sort")[0].style.display = 'none'
+  document.getElementsByClassName("arrow-up")[0].style.display = 'none'
+  document.getElementsByClassName("arrow-down")[0].style.display = 'none'
+}

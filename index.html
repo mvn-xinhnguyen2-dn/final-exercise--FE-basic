@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./data/data.js"></script>
+    <!-- <script src="./data/sort.js"></script> -->
     <title>Product</title>
   </head>
   <body>
@@ -64,21 +65,26 @@
             <div class="sort-bar">
               <ul class="sort-list">
                 <li>Sắp xếp theo</li>
-                <li>Mới nhất</li>
-                <li>
+                <li class="sort-latest active" onclick="sortlatest()">Mới nhất</li>
+                <li class="sort-price">
                   <span> Giá</span>
+                  <span class="icon-sort active"><i class="fa-solid fa-filter"></i></span>
+                  <span class="arrow-up"><i class="fa-solid fa-arrow-up-short-wide"></i></span>
+                  <span class="arrow-down"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
                   <div class="sort-option">
-                    <p>Giá: Thấp đến cao</p>
-                    <p>Giá: Cao đến thấp</p>
+                    <p id="sort-price-asc" onclick="sortPriceAsc()">Thấp đến cao</p>
+                    <p id="sort-price-desc" onclick="sortPriceDesc()">Cao đến thấp</p>
                   </div>
                 </li>
-                <li>
+                <!-- <li class="sort-name">
                   <span> Tên sản phẩm</span>
+                  <i id ="a-z" class="fa-solid fa-arrow-down-a-z"></i>
+                  <i id ="z-a" class="fa-solid fa-arrow-down-z-a"></i>
                   <div class="sort-option">
-                    <p>tên sản phẩm: A-Z</p>
-                    <p>tên sản phẩm: Z-A</p>
+                    <p id="sort-name-Asc" onclick="sortNameAsc()">A-Z</p>
+                    <p id="sort-name-desc" onclick="sortNameDesc()">Z-A</p>
                   </div>
-                </li>
+                </li> -->
               </ul>
             </div>
             <p class="replace-key">
