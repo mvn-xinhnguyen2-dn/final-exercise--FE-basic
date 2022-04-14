@@ -193,7 +193,7 @@ function sortlatest() {
   })
   removeSortIcon()
   document.getElementsByClassName("icon-sort")[0].style.display = 'block'
-  activeReplaceKey()
+
   document.getElementById("key-word").innerHTML="Sản phẩm mới nhất"
   showProductTable(product)
 }
@@ -208,7 +208,7 @@ function sortPriceAsc() {
   product.sort(function(a, b) {
     return a.price - b.price
   })
-  activeReplaceKey()
+
   document.getElementById("key-word").innerHTML="Sắp xếp giá tăng dần"
   showProductTable(product)
 }
@@ -223,7 +223,6 @@ function sortPriceDesc() {
   product.sort(function(a, b) {
     return b.price - a.price
   })
-  activeReplaceKey()
   document.getElementById("key-word").innerHTML="Sắp xếp giá giảm dần"
   showProductTable(product)
 }
