@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <script
+      src="https://kit.fontawesome.com/cf7ff6fcbd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./data/data.js"></script>
+    <!-- <script src="./data/sort.js"></script> -->
+    <title>Product</title>
+  </head>
+  <body>
+    <div class="header-page">
+      <nav class="header-nav">
+        <a class="brand-logo" href="index.html"
+          ><img
+            src="https://themes.the4.co/kalles-html/assets/images/svg/kalles.svg"
+            alt=""
+        /></a>
+        <div class="form-search">
+          <form id="form-search" action="">
+            <input
+              type="text"
+              placeholder="Find with product name or price"
+              id="search-key"
+            />
+            <button class="search" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <button></button>
+        </div>
+        <a class="icon-cart" href="./html/page-cart.html">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="number-item">0</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="main-page">
+      <section class="section-product">
+        <div class="container">
+          <aside class="left-sidebar col-3">
+            <h2>Admin</h2>
+            <ul class="admin-list">
+              <li class="admin-item">
+                <a href="#"> Trang chủ</a>
+              </li>
+              <li class="admin-item">
+                <a href="./html/manage-product.html"> Quản lý sản phẩm</a>
+              </li>
+              <li class="admin-item">
+                <a href="./html/add-product.html"> Thêm sản phẩm mới</a>
+              </li>
+              <li class="admin-item">
+                <a href="./html/page-cart.html"> Xem giỏ hàng</a>
+              </li>
+            </ul>
+          </aside>
+          <div class="show-product col-9">
+            <div class="sort-bar">
+              <ul class="sort-list">
+                <li>Sắp xếp theo</li>
+                <li class="sort-latest active" onclick="sortlatest()">Mới nhất</li>
+                <li class="sort-price">
+                  <span> Giá</span>
+                  <span class="icon-sort active"><i class="fa-solid fa-filter"></i></span>
+                  <span class="arrow-up"><i class="fa-solid fa-arrow-up-short-wide"></i></span>
+                  <span class="arrow-down"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                  <div class="sort-option">
+                    <p id="sort-price-asc" onclick="sortPriceAsc()">Thấp đến cao</p>
+                    <p id="sort-price-desc" onclick="sortPriceDesc()">Cao đến thấp</p>
+                  </div>
+                </li>
+                <!-- <li class="sort-name">
+                  <span> Tên sản phẩm</span>
+                  <i id ="a-z" class="fa-solid fa-arrow-down-a-z"></i>
+                  <i id ="z-a" class="fa-solid fa-arrow-down-z-a"></i>
+                  <div class="sort-option">
+                    <p id="sort-name-Asc" onclick="sortNameAsc()">A-Z</p>
+                    <p id="sort-name-desc" onclick="sortNameDesc()">Z-A</p>
+                  </div>
+                </li> -->
+              </ul>
+            </div>
+            <p class="replace-key">
+              Kết quả tìm kiếm: <span id="key-word"></span>
+            </p>
+            <ul id="product-list" class="wrap"></ul>
+          </div>
+          <div></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer-page"></div>
+
+    <script src="./main/product.js"></script>
+  </body>
+</html>

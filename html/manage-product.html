@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/style.css" />
+    <script
+      src="https://kit.fontawesome.com/cf7ff6fcbd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./data/sort.js"></script>
+    <title>Manage product</title>
+  </head>
+  <body>
+    <div class="header-page">
+      <nav class="header-nav">
+        <a class="brand-logo" href="../index.html"
+          ><img
+            src="https://themes.the4.co/kalles-html/assets/images/svg/kalles.svg"
+            alt=""
+        /></a>
+        <div class="form-search">
+          <form id="form-search" action="">
+            <input
+              type="text"
+              placeholder="Find with product name or price"
+              id="search-key"
+            />
+            <button class="search" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <button></button>
+        </div>
+        <a class="icon-cart" href="page-cart.html">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="number-item">0</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="main-page">
+      <section class="manage-product">
+        <div class="container">
+          <aside class="left-sidebar col-3">
+            <h2>Admin</h2>
+            <ul class="admin-list">
+              <li class="admin-item"><a href="../index.html"> Trang chủ</a></li>
+              <li class="admin-item">
+                <a href="./manage-product.html"> Quản lý sản phẩm</a>
+              </li>
+              <li class="admin-item">
+                <a href="./add-product.html"> Thêm sản phẩm mới</a>
+              </li>
+              <li class="admin-item">
+                <a href="./page-cart.html"> Xem giỏ hàng</a>
+              </li>
+            </ul>
+          </aside>
+          <div class="col-9">
+            <div class="sort-bar">
+              <ul class="sort-list">
+                <li>Sắp xếp theo</li>
+                <li class="sort-latest active" onclick="sortlatest()">Mới nhất</li>
+                <li class="sort-price">
+                  <span> Giá</span>
+                  <span class="icon-sort active"><i class="fa-solid fa-filter"></i></span>
+                  <span class="arrow-up"><i class="fa-solid fa-arrow-up-short-wide"></i></span>
+                  <span class="arrow-down"><i class="fa-solid fa-arrow-down-short-wide"></i></span>
+                  <div class="sort-option">
+                    <p id="sort-price-asc" onclick="sortPriceAsc()">Thấp đến cao</p>
+                    <p id="sort-price-desc" onclick="sortPriceDesc()">Cao đến thấp</p>
+                  </div>
+                </li>
+                <!-- <li class="sort-name">
+                  <span> Tên sản phẩm</span>
+                  <i id ="a-z" class="fa-solid fa-arrow-down-a-z"></i>
+                  <i id ="z-a" class="fa-solid fa-arrow-down-z-a"></i>
+                  <div class="sort-option">
+                    <p id="sort-name-Asc" onclick="sortNameAsc()">A-Z</p>
+                    <p id="sort-name-desc" onclick="sortNameDesc()">Z-A</p>
+                  </div>
+                </li> -->
+              </ul>
+            </div>
+            <div class="scroll-table">
+              <p class="replace-key">
+                Kết quả tìm kiếm: <span id="key-word"></span>
+              </p>
+              <table class="manage-product-table">
+                <thead>
+                  <tr>
+                    <th>Num</th>
+                    <th></th>
+                    <th>Product name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <!-- <th>Description</th> -->
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="insert-product-table"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="form update-item">
+            <h2>Chỉnh sửa thông tin sản phẩm</h2>
+            <form id="form-update-item" name="form-update-item" action="">
+              <table class="table-form">
+                <tbody>
+                  <tr>
+                    <td><label for="product-name">Product name:</label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="product-name"
+                        id="product-name"
+                        value=""
+                        required
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="product-category">Category:</label></td>
+                    <td>
+                      <select
+                        name="product-category"
+                        id="product-category"
+                        required
+                      >
+                        <option selected disabled hidden>
+                          Choose category
+                        </option>
+                        <option value="Smart phone">Smart phone</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Tablet">Tablet</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="product-image">Image (url):</label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="product-image"
+                        id="product-image"
+                        required
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="product-quantity">Quantity:</label></td>
+                    <td>
+                      <input
+                        type="number"
+                        name="product-quantity"
+                        id="product-quantity"
+                        required
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="product-price">Price:</label></td>
+                    <td>
+                      <input
+                        type="number"
+                        name="product-price"
+                        id="product-price"
+                        required
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="product-description">Description:</label>
+                    </td>
+                    <td>
+                      <textarea
+                        cols="85"
+                        rows="5"
+                        name="product-description"
+                        id="product-description"
+                      ></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="button-form">
+                <button class="btn update" type="submit">Update</button>
+                <button
+                  class="btn close"
+                  type="button"
+                  onclick="removeFormUpdate()"
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div id="product-detail"></div>
+        </div>
+      </section>
+    </div>
+    <div class="footer-page"></div>
+
+    <script src="../main/manage-product.js"></script>
+  </body>
+</html>
